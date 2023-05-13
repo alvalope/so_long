@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:12:34 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/13 13:58:56 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:34:06 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_read_map(char *m, int *file)
 		*file = open (m, O_RDONLY);
 }
 
-int	ft_check_map2(int file, char *line, t_check *c)
+int	ft_check_map2(char *line, t_check *c)
 {
 	if (line[c->l_l - 1] == 0)
 	{
@@ -101,7 +101,7 @@ int	ft_check_map(int file, t_check *c)
 	line = ft_get_next_line(file);
 	while (line)
 	{
-		check = ft_check_map2(file, line, c);
+		check = ft_check_map2(line, c);
 		if (!check)
 			break ;
 		free(line);

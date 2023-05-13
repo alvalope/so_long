@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:51 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/13 13:57:12 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:08:43 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ void	ft_leaks(void)
 int	main(int argc, char *argv[])
 {
 	int		file;
-	int		map_lines;
 	t_check	*c;
 	char	*buffer;
 
-	atexit(ft_leaks);
+	//atexit(ft_leaks);
 	c = (t_check *)ft_calloc(sizeof(t_check), 1);
 	if (!c)
 		return (0);
@@ -31,8 +30,8 @@ int	main(int argc, char *argv[])
 	c->check_p = 0;
 	c->check_c = 0;
 	file = 0;
-	argc = 2;
-	argv[1] = "map2.ber";
+	/*argc = 2;
+	argv[1] = "maps/map10.ber";*/
 	if (argc != 2)
 		printf("Debes introducir un mapa.\n");
 	else

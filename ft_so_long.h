@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/13 13:04:58 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:34:59 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ typedef struct s_data {
 	int		endian;
 }	t_img_data;
 
-int		ft_check_first_line(char *line, t_check *c);
-int		ft_check_last_line(char *line, t_check *c);
+int		ft_check_first_last_line(char *line, t_check *c, int first);
 int		ft_check_middle_line(char *line, t_check *c);
 void	ft_read_map(char *m, int *file);
 int		ft_check_map(int file, t_check *c);
+int		ft_check_map2(char *line, t_check *c);
 
 void	ft_put_images(void *mlx, void *mlx_win, char *buffer, t_wandh wh);
 void	ft_create_window(int win_w, int win_h, char *buffer);
