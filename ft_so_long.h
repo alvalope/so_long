@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/13 14:34:59 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 10:28:30 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,39 +27,44 @@ typedef struct check
 	int	lins;
 }	t_check;
 
-typedef struct map_size
-{
-	int	height;
-	int	width;
-}	t_map_size;
-
 typedef struct wandh
 {
+	void	*mlx;
+	void	*win;
+	char	*buf;
 	int		i;
 	int		w;
 	int		h;
 	int		win_w;
-	int		win_h;
-	int		wid;
-	int		hei;
+	int		wi;
+	int		he;
+	int		j_w;
+	int		j_h;
+	int		winner;
 	void	*img[5];
-}	t_wandh;
+}	t_wvars;
 
 typedef struct s_data {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
+	int		bpp;
+	int		line_l;
 	int		endian;
 }	t_img_data;
 
 int		ft_check_first_last_line(char *line, t_check *c, int first);
 int		ft_check_middle_line(char *line, t_check *c);
-void	ft_read_map(char *m, int *file);
+int		ft_read_map(char *m, int *file);
 int		ft_check_map(int file, t_check *c);
 int		ft_check_map2(char *line, t_check *c);
 
-void	ft_put_images(void *mlx, void *mlx_win, char *buffer, t_wandh wh);
+void	ft_take_banana_or_exit(t_wvars *w);
+void	move_image_left(t_wvars *w);
+void	move_image_right(t_wvars *w);
+void	move_image_down(t_wvars *w);
+void	move_image_up(t_wvars *w);
+
+void	ft_put_images(t_wvars *wh);
 void	ft_create_window(int win_w, int win_h, char *buffer);
 
 int		main(int argc, char *argv[]);

@@ -6,7 +6,7 @@
 #    By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:43:51 by alvalope          #+#    #+#              #
-#    Updated: 2023/05/13 14:55:55 by alvalope         ###   ########.fr        #
+#    Updated: 2023/05/14 10:36:35 by alvalope         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 FRAMEWORK = -framework OpenGL -framework AppKit
 
-SRCS = ft_so_long.c ft_check_map.c ft_create_window.c
+SRCS = ft_so_long.c ft_check_map.c ft_create_window.c ft_moves.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -48,7 +48,7 @@ $(LIBFT):
 	make -C $(LIBFT_PATH) all
 
 $(MINILIBX):
-	make -C $(MINILIBX_PATH) all
+	@make -C $(MINILIBX_PATH) all
 
 clean:
 	make -C $(LIBFT_PATH) clean
@@ -63,6 +63,11 @@ game: all clean
 	make -C $(LIBFT_PATH) fclean
 	$(RM) $(SO_LONG)
 	
+test: all
+	cp $(MINILIBX) libmlx.a
+	cp $(LIBFT) libft.a
+	make fclean
+
 re: fclean all
 
 .PHONY: all clean fclean re

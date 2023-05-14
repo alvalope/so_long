@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:12:34 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/13 14:34:06 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 10:38:52 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,17 @@ int	ft_check_middle_line(char *lin, t_check *c)
 		return (0);
 }
 
-void	ft_read_map(char *m, int *file)
+int	ft_read_map(char *m, int *file)
 {
 	int	i;
 
 	i = ft_strlen(m) - 1;
 	if (m[i] == 'r' && m[i - 1] == 'e' && m[i - 2] == 'b' && m[i - 3] == '.')
 		*file = open (m, O_RDONLY);
+	if (*file == -1)
+		return (0);
+	else
+		return (1);
 }
 
 int	ft_check_map2(char *line, t_check *c)
