@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:55:59 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 17:04:56 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:20:02 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_joaquin_die(t_wvars *w)
 {
-	ft_printf("You kill Joaquin :(");
+	ft_printf("You kill Joaquin :( Quedaban %d plátanos.", w->bananas);
 }
 
 void	ft_move_staff(t_wvars *w)

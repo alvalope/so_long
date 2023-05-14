@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:45:53 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 19:50:53 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:38:53 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int	ft_check_exit(t_wvars *w)
 	w->w = (w->i - w->win_w * (w->i / w->win_w)) * 64;
 	w->h = (w->i / w->win_w) * 64;
 	ft_check_exit2(w, j);
+	w->i = 0;
 	return (w->found_exit);
 }
