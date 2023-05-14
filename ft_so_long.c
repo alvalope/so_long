@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:51 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 10:15:00 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 12:18:45 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int	main(int argc, char *argv[])
 
 	atexit(ft_leaks);
 	argc = 2;
-	argv[1] = "maps/map2.ber";
+	argv[1] = "maps/map3.ber";
 	c = (t_check *)ft_calloc(sizeof(t_check), 1);
 	if (!c)
 		return (0);
 	file = 0;
 	if (argc != 2)
-		ft_printf("Debes introducir un mapa.\n");
+		ft_printf("Error\nDebes introducir un mapa.\n");
 	else
 	{
 		if (!ft_read_map(argv[1], &file))
@@ -58,7 +58,7 @@ int	main(int argc, char *argv[])
 				return (free(c), 0);
 		}	
 		else
-			ft_printf("El mapa %s introducido no es válido.\n", argv[1]);
+			ft_printf("Error\nEl mapa %s introducido no es válido.\n", argv[1]);
 	}
 	return (free(c), 0);
 }

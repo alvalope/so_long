@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:22:57 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 10:26:01 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 12:52:55 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,33 @@
 
 void	ft_take_banana_or_exit(t_wvars *w)
 {
-	int	nomore;
-
-	nomore = 0;
 	if (w->buf[(w->j_h / 64) * w->win_w + (w->j_w / 64)] == 'C')
-		w->buf[(w->j_h / 64) * w->win_w + (w->j_w / 64)] = '0';
-	else if (!nomore && w->buf[(w->j_h / 64) * w->win_w + (w->j_w / 64)] == 'E')
 	{
-		ft_printf("YOU WIN");
-		mlx_destroy_window(w->mlx, w->win);
-		w->winner = 1;
+		w->buf[(w->j_h / 64) * w->win_w + (w->j_w / 64)] = '0';
+		w->bananas -= 1;
+		if (w->bananas > 1)
+			ft_printf(" Quedan %d plátanos por recoger.", w->bananas);
+		else if (w->bananas == 1)
+			ft_printf(" Quedan %d plátano por recoger.", w->bananas);
+		else
+			ft_printf(" Has recogido todos los plátanos, ve a la salida!!!");
+	}
+	else if (!w->bananas)
+	{
+		if (w->buf[(w->j_h / 64) * w->win_w + (w->j_w / 64)] == 'E')
+		{
+			ft_printf("\n\nLograste escapar de 42 con todos los plátanos.\n");
+			mlx_destroy_window(w->mlx, w->win);
+			w->winner = 1;
+		}
 	}
 }
 
-void	move_image_left(t_wvars *w)
+void	ft_move_left(t_wvars *w)
 {
 	w->j_w -= 64;
+	w->moves += 1;
+	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
 	ft_take_banana_or_exit(w);
@@ -37,9 +48,11 @@ void	move_image_left(t_wvars *w)
 		ft_put_images(w);
 }
 
-void	move_image_right(t_wvars *w)
+void	ft_move_right(t_wvars *w)
 {
 	w->j_w += 64;
+	w->moves += 1;
+	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
 	ft_take_banana_or_exit(w);
@@ -47,9 +60,11 @@ void	move_image_right(t_wvars *w)
 		ft_put_images(w);
 }
 
-void	move_image_down(t_wvars *w)
+void	ft_move_down(t_wvars *w)
 {
 	w->j_h += 64;
+	w->moves += 1;
+	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
 	ft_take_banana_or_exit(w);
@@ -57,9 +72,11 @@ void	move_image_down(t_wvars *w)
 		ft_put_images(w);
 }
 
-void	move_image_up(t_wvars *w)
+void	ft_move_up(t_wvars *w)
 {
 	w->j_h -= 64;
+	w->moves += 1;
+	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
 	ft_take_banana_or_exit(w);

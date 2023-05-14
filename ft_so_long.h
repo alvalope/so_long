@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 10:28:30 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 12:34:21 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ typedef struct wandh
 	int		w;
 	int		h;
 	int		win_w;
-	int		wi;
-	int		he;
+	int		wh;
 	int		j_w;
 	int		j_h;
 	int		winner;
-	void	*img[5];
+	int		moves;
+	int		bananas;
+	void	*img[6];
 }	t_wvars;
 
 typedef struct s_data {
@@ -59,13 +60,13 @@ int		ft_check_map(int file, t_check *c);
 int		ft_check_map2(char *line, t_check *c);
 
 void	ft_take_banana_or_exit(t_wvars *w);
-void	move_image_left(t_wvars *w);
-void	move_image_right(t_wvars *w);
-void	move_image_down(t_wvars *w);
-void	move_image_up(t_wvars *w);
+void	ft_move_left(t_wvars *w);
+void	ft_move_right(t_wvars *w);
+void	ft_move_down(t_wvars *w);
+void	ft_move_up(t_wvars *w);
 
 void	ft_put_images(t_wvars *wh);
-void	ft_create_window(int win_w, int win_h, char *buffer);
+int		ft_create_window(int win_w, int win_h, char *buffer);
 
 int		main(int argc, char *argv[]);
 
