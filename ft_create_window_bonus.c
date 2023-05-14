@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 16:57:27 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:02:37 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	ft_convert_xpm(t_wvars *w)
 		return (0);
 }
 
-int	ft_create_window(int win_w, int win_h, char *buf)
+int	ft_create_window(int win_w, int win_h, char *buf, char *buf2)
 {
 	t_img_data	img;
 	t_wvars		*w;
@@ -92,6 +92,9 @@ int	ft_create_window(int win_w, int win_h, char *buf)
 	title = "Joaquin escapes from 42";
 	w->wh = 64;
 	w->buf = buf;
+	w->buf2 = buf2;
+	if (!ft_check_exit(w))
+		return (free(w), 2);
 	ft_count_collectables(w);
 	w->win_w = win_w;
 	w->mlx = mlx_init();

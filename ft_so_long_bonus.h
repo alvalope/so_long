@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 16:44:10 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:04:29 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct wandh
 	void	*mlx;
 	void	*win;
 	char	*buf;
+	char	*buf2;
 	int		i;
 	int		w;
 	int		h;
@@ -46,6 +47,7 @@ typedef struct wandh
 	int		bananas;
 	int		staff;
 	void	*img[6];
+	int		found_exit;
 }	t_wvars;
 
 typedef struct s_data {
@@ -74,7 +76,7 @@ void	ft_count_collectables(t_wvars *w);
 void	ft_put_images2(t_wvars *wh);
 void	ft_put_images(t_wvars *wh);
 int		ft_convert_xpm(t_wvars *w);
-int		ft_create_window(int win_w, int win_h, char *buffer);
+int		ft_create_window(int win_w, int win_h, char *buffer, char *buffer2);
 
 void	ft_joaquin_die(t_wvars *w);
 void	ft_move_staff(t_wvars *w);

@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:51 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 16:37:52 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:56:36 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,23 @@ void	ft_leaks(void)
 int	main2(char *map, int file, t_check *c)
 {
 	char	*buffer;
+	char	*buffer2;
+	int		create;
 
 	open (map, O_RDONLY);
 	buffer = ft_calloc(((c->l_l + 1) * c->lins) + 1, 1);
 	if (!buffer)
 		return (0);
 	read(file, buffer, (c->l_l) * c->lins);
-	ft_create_window(c->l_l, c->lins, buffer);
+	buffer2 = ft_strdup(buffer);
+	create = ft_create_window(c->l_l, c->lins, buffer, buffer2);
+	if (!create)
+		return (free(buffer), 0);
+	else if (create == 2)
+	{
+		printf("Error\nNo se puede llegar a la salida en el mapa %s", map);
+		return (free(buffer), 0);
+	}
 	free (buffer);
 	close(file);
 	return (1);
