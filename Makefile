@@ -6,7 +6,7 @@
 #    By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:43:51 by alvalope          #+#    #+#              #
-#    Updated: 2023/05/14 20:23:38 by alvalope         ###   ########.fr        #
+#    Updated: 2023/05/14 20:56:56 by alvalope         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,10 @@ $(LIBFT):
 $(MINILIBX):
 	@make -C $(MINILIBX_PATH) all
 
+help:
+	@echo "\nPrueba make game o make game_bonus para crear los ejecutables \
+	y luego para ejecutarlos ./so_long mapa o ./so_long_bonus mapa\n"
+
 clean:
 	make -C $(LIBFT_PATH) clean
 	make -C $(MINILIBX_PATH) clean
@@ -87,4 +91,4 @@ test: all
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re help

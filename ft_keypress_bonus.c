@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:45:53 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 20:39:33 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 21:02:08 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,15 @@ void	ft_check_exit2(t_wvars *w, int j)
 		w->found_exit = 1;
 	else if (!w->found_exit)
 	{
+		w->buf2[j] = '1';
 		if (w->buf2[j + 1] && w->buf2[j + 1] != '1')
-		{
-			w->buf2[j] = '1';
 			ft_check_exit2(w, j + 1);
-		}
 		if (w->buf2[j - 1] && w->buf2[j - 1] != '1')
-		{
-			w->buf2[j] = '1';
 			ft_check_exit2(w, j - 1);
-		}
 		if (w->buf2[j + w->win_w] && w->buf2[j + w->win_w] != '1')
-		{
-			w->buf2[j] = '1';
 			ft_check_exit2(w, j + w->win_w);
-		}
 		if (w->buf2[j - w->win_w] && w->buf2[j - w->win_w] != '1')
-		{
-			w->buf2[j] = '1';
 			ft_check_exit2(w, j - w->win_w);
-		}
 	}
 }
 

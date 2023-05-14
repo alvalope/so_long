@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:51 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 19:56:36 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 21:04:53 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main2(char *map, int file, t_check *c)
 		return (free(buffer), 0);
 	else if (create == 2)
 	{
-		printf("Error\nNo se puede llegar a la salida en el mapa %s", map);
+		ft_printf("Error\nNo se puede llegar a la salida en el mapa %s\n", map);
 		return (free(buffer), 0);
 	}
 	free (buffer);
