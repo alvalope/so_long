@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_so_long.h                                       :+:      :+:    :+:   */
+/*   ft_so_long_bonus.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 13:49:00 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:44:10 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SO_LONG_H
-# define FT_SO_LONG_H
+#ifndef FT_SO_LONG_BONUS_H
+# define FT_SO_LONG_BONUS_H
 
 # include "libft_plus/libft.h"
 # include "mlx/mlx.h"
@@ -39,10 +39,13 @@ typedef struct wandh
 	int		wh;
 	int		j_w;
 	int		j_h;
+	int		s_w;
+	int		s_h;
 	int		winner;
 	int		moves;
 	int		bananas;
-	void	*img[5];
+	int		staff;
+	void	*img[6];
 }	t_wvars;
 
 typedef struct s_data {
@@ -72,6 +75,9 @@ void	ft_put_images2(t_wvars *wh);
 void	ft_put_images(t_wvars *wh);
 int		ft_convert_xpm(t_wvars *w);
 int		ft_create_window(int win_w, int win_h, char *buffer);
+
+void	ft_joaquin_die(t_wvars *w);
+void	ft_move_staff(t_wvars *w);
 
 int		main(int argc, char *argv[]);
 

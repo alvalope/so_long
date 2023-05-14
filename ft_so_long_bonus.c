@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_so_long.c                                       :+:      :+:    :+:   */
+/*   ft_so_long_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:51 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 16:37:52 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 17:20:05 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_so_long.h"
+#include "ft_so_long_bonus.h"
 
 void	ft_leaks(void)
 {
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[])
 
 	atexit(ft_leaks);
 	argc = 2;
-	argv[1] = "maps/map2.ber";
+	argv[1] = "maps/map_bonus.ber";
 	c = (t_check *)ft_calloc(sizeof(t_check), 1);
 	if (!c)
 		return (0);

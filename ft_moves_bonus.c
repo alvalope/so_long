@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_moves.c                                         :+:      :+:    :+:   */
+/*   ft_moves_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:22:57 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 16:24:22 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/14 17:18:30 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_so_long.h"
+#include "ft_so_long_bonus.h"
 
 void	ft_take_banana_or_exit(t_wvars *w)
 {
@@ -45,9 +45,12 @@ void	ft_move_left(t_wvars *w)
 	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
+	ft_move_staff(w);
 	ft_take_banana_or_exit(w);
 	if (!w->winner)
 		ft_put_images(w);
+	if (w->j_w == w->s_w && w->j_h == w->s_h)
+		ft_joaquin_die(w);
 }
 
 void	ft_move_right(t_wvars *w)
@@ -57,9 +60,12 @@ void	ft_move_right(t_wvars *w)
 	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
+	ft_move_staff(w);
 	ft_take_banana_or_exit(w);
 	if (!w->winner)
 		ft_put_images(w);
+	if (w->j_w == w->s_w && w->j_h == w->s_h)
+		ft_joaquin_die(w);
 }
 
 void	ft_move_down(t_wvars *w)
@@ -69,9 +75,12 @@ void	ft_move_down(t_wvars *w)
 	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
+	ft_move_staff(w);
 	ft_take_banana_or_exit(w);
 	if (!w->winner)
 		ft_put_images(w);
+	if (w->j_w == w->s_w && w->j_h == w->s_h)
+		ft_joaquin_die(w);
 }
 
 void	ft_move_up(t_wvars *w)
@@ -81,7 +90,10 @@ void	ft_move_up(t_wvars *w)
 	ft_printf("\nNúmero de movimientos: %d", w->moves);
 	mlx_clear_window(w->mlx, w->win);
 	w->i = 0;
+	ft_move_staff(w);
 	ft_take_banana_or_exit(w);
 	if (!w->winner)
 		ft_put_images(w);
+	if (w->j_w == w->s_w && w->j_h == w->s_h)
+		ft_joaquin_die(w);
 }
