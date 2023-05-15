@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:45:53 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 21:01:57 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:43:43 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	ft_keypress(int keycode, t_wvars *w)
 		&& w->buf[((w->j_h - 64) / 64) * w->win_w + (w->j_w / 64)] != '1')
 		ft_move_up(w);
 	else if (keycode == 53)
+	{
 		mlx_destroy_window(w->mlx, w->win);
+		exit(0);
+	}
 	return (0);
 }
 

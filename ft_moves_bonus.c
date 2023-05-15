@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:22:57 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 17:18:30 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:46:40 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_take_banana_or_exit(t_wvars *w)
 			if (w->moves == 42)
 				ft_printf("\nEnorabuena has descubierto el easter egg!!! ^_^");
 			mlx_destroy_window(w->mlx, w->win);
+			exit(0);
 			w->winner = 1;
 		}
 	}
