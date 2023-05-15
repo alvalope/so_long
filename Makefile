@@ -6,7 +6,7 @@
 #    By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:43:51 by alvalope          #+#    #+#              #
-#    Updated: 2023/05/15 12:04:02 by alvalope         ###   ########.fr        #
+#    Updated: 2023/05/15 14:44:15 by alvalope         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SO_LONG = so_long.a
 
 SO_LONG_BONUS = so_long_bonus.a
 
-LIBFT_PATH = ./libft_plus
+LIBFT_PATH = ./libftplus
 
 LIBFT = $(LIBFT_PATH)/libft.a
 
@@ -51,40 +51,56 @@ LIB = ar rcs
 
 all: $(NAME)
 
+$(OBJS): $(SRCS)
+	@echo "Compilando so_long..."
+	@$(CC) $(CFLAGS) -c $(SRCS)
+
+$(BONUS_OBJS): $(BONUS_SRCS)
+	@echo "Compilando so_long con los bonus..."
+	@$(CC) $(CFLAGS) -c $(BONUS_SRCS)
+	
 $(NAME): $(OBJS) $(LIBFT) $(MINILIBX) $(HEADER)
-	$(LIB) $(SO_LONG) $(OBJS)
-	$(CC) $(CFLAGS) $(SO_LONG) $(LIBFT) $(MINILIBX) $(FRAMEWORK) -o $(NAME)
+	@echo "Generando libreria so_long..."
+	@$(LIB) $(SO_LONG) $(OBJS)
+	@$(CC) $(CFLAGS) $(SO_LONG) $(LIBFT) $(MINILIBX) $(FRAMEWORK) -o $(NAME)
+	@echo "PROCESO TERMINADO."
 
 bonus: $(BONUS_OBJS) $(LIBFT) $(MINILIBX)
-	$(LIB) $(SO_LONG_BONUS) $(BONUS_OBJS)
-	$(CC) $(CFLAGS) $(SO_LONG_BONUS) $(LIBFT) $(MINILIBX) $(FRAMEWORK) -o $(NAME_BONUS)
+	@echo "Generando libreria de so long con los bonus..."
+	@$(LIB) $(SO_LONG_BONUS) $(BONUS_OBJS)
+	@$(CC) $(CFLAGS) $(SO_LONG_BONUS) $(LIBFT) $(MINILIBX) $(FRAMEWORK) -o $(NAME_BONUS)
+	@echo "PROCESO TERMINADO."
 
 $(LIBFT):
-	make -C $(LIBFT_PATH) all
+	@make -C $(LIBFT_PATH) all
 
 $(MINILIBX):
-	@make -C $(MINILIBX_PATH) all
+	@make  -C $(MINILIBX_PATH) all
 
 help:
 	@echo "\nPrueba make game o make game_bonus para crear los ejecutables \
 	y luego para ejecutarlos ./so_long mapa o ./so_long_bonus mapa\n"
 
 clean:
-	make -C $(LIBFT_PATH) clean
-	make -C $(MINILIBX_PATH) clean
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	@echo "Borrando archivos generados en la compilacion..."
+	@make -C $(LIBFT_PATH) clean
+	@make -C $(MINILIBX_PATH) clean
+	@$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	make -C $(LIBFT_PATH) fclean
-	$(RM) $(NAME) $(NAME_BONUS) $(SO_LONG) $(SO_LONG_BONUS)
+	@echo "Borrando librerias generadas..."
+	@make -C $(LIBFT_PATH) fclean
+	@$(RM) $(NAME) $(NAME_BONUS) $(SO_LONG) $(SO_LONG_BONUS)
 
 game: all clean
-	make -C $(LIBFT_PATH) fclean
-	$(RM) $(SO_LONG)
+	@echo "Generando ejecutable so_long..."
+	@make -C $(LIBFT_PATH) libclean
+	@$(RM) $(SO_LONG)
 
 game_bonus: bonus clean
-	make -C $(LIBFT_PATH) fclean
-	$(RM) $(SO_LONG) $(SO_LONG_BONUS)
+	@echo "Generando ejecutable so_long_bonus..."
+	@make -C $(LIBFT_PATH) fclean
+	@$(RM) $(SO_LONG) $(SO_LONG_BONUS)
 	
 test: all
 	cp $(MINILIBX) libmlx.a
