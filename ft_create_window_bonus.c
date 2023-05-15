@@ -6,13 +6,13 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 20:02:37 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:37:30 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
 
-void	ft_put_images2(t_wvars *w)
+int	ft_put_images2(t_wvars *w)
 {
 	if (w->buf[w->i] == 'E')
 		mlx_put_image_to_window(w->mlx, w->win, w->img[4], w->w, w->h);
@@ -29,10 +29,11 @@ void	ft_put_images2(t_wvars *w)
 	if (w->w == w->j_w && w->h == w->j_h && w->w != 0)
 	{
 		if (w->buf[w->i] == 'S')
-			ft_joaquin_die(w);
+			return (0);
 		else
 			mlx_put_image_to_window(w->mlx, w->win, w->img[3], w->j_w, w->j_h);
 	}
+	return (1);
 }
 
 void	ft_put_images(t_wvars *w)
@@ -57,7 +58,8 @@ void	ft_put_images(t_wvars *w)
 					w->j_h = w->h;
 				}
 			}
-			ft_put_images2(w);
+			if (!ft_put_images2(w))
+				break ;
 		}
 		w->i += 1;
 	}

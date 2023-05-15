@@ -6,7 +6,7 @@
 #    By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:43:51 by alvalope          #+#    #+#              #
-#    Updated: 2023/05/14 20:56:56 by alvalope         ###   ########.fr        #
+#    Updated: 2023/05/15 12:04:02 by alvalope         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ LIBFT = $(LIBFT_PATH)/libft.a
 MINILIBX_PATH = ./mlx
 
 MINILIBX = $(MINILIBX_PATH)/libmlx.a
+
+MINILIBX2 = ./MLX42/libmlx42.a
 
 HEADER = ft_so_long.h $(LIBFT_PATH)/libft.h
 
