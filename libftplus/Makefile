@@ -6,7 +6,7 @@
 #    By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 19:33:07 by alvalope          #+#    #+#              #
-#    Updated: 2023/05/15 14:33:03 by alvalope         ###   ########.fr        #
+#    Updated: 2023/05/16 13:52:05 by alvalope         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,15 +46,15 @@ $(NAME): $(OBJS) $(HEADER)
 	@$(LIB) $(NAME) $(OBJS)
 
 clean:
-	@echo "Borrando archivos de la libft_plus..."
+	@echo "\033[0;31mBorrando archivos de la libft_plus...\033[0m"
 	@$(RM) $(OBJS)
 	
 fclean: clean
-	@echo "Borrando libreria libft_plus..."
+	@echo "\033[0;31mBorrando libreria libft_plus...\033[0m"
 	@$(RM) $(NAME)
 
 libclean:
-	@echo "Borrando libreria libft_plus..."
+	@echo "\033[0;31mBorrando libreria libft_plus...\033[0m"
 	@$(RM) $(NAME)
 
 re: fclean all

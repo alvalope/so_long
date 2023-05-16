@@ -23,7 +23,7 @@ $(NOM):	$(OBJ)
 	@ranlib $(NOM)
 
 clean:
-	@echo "Borrando archivos de la libreria minilibX..."
+	@echo "\033[0;31mBorrando archivos de la libreria minilibX...\033[0;31m"
 	@rm -f $(NOM) $(OBJ) *~
 	@rm -f mlx_app
 

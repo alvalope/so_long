@@ -6,7 +6,7 @@
 #    By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:43:51 by alvalope          #+#    #+#              #
-#    Updated: 2023/05/16 13:05:24 by alvalope         ###   ########.fr        #
+#    Updated: 2023/05/16 13:51:27 by alvalope         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,13 +63,13 @@ $(NAME): $(OBJS) $(LIBFT) $(MINILIBX) $(HEADER)
 	@echo "Generando libreria so_long..."
 	@$(LIB) $(SO_LONG) $(OBJS)
 	@$(CC) $(CFLAGS) $(SO_LONG) $(LIBFT) $(MINILIBX) $(FRAMEWORK) -o $(NAME)
-	@echo "PROCESO TERMINADO."
+	@echo "\033[0;32mPROCESO TERMINADO.\033[0m"
 
 bonus: $(BONUS_OBJS) $(LIBFT) $(MINILIBX)
 	@echo "Generando libreria de so long con los bonus..."
 	@$(LIB) $(SO_LONG_BONUS) $(BONUS_OBJS)
 	@$(CC) $(CFLAGS) $(SO_LONG_BONUS) $(LIBFT) $(MINILIBX) $(FRAMEWORK) -o $(NAME_BONUS)
-	@echo "PROCESO TERMINADO."
+	@echo "\033[0;32mPROCESO TERMINADO.\033[0m"
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH) all
@@ -82,13 +82,13 @@ help:
 	y luego para ejecutarlos ./so_long mapa o ./so_long_bonus mapa\n"
 
 clean:
-	@echo "Borrando archivos generados en la compilacion..."
+	@echo "\033[0;31mBorrando archivos generados en la compilacion...\033[0m"
 	@make -C $(LIBFT_PATH) clean
 	@make -C $(MINILIBX_PATH) clean
 	@$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	@echo "Borrando librerias generadas..."
+	@echo "\033[0;31mBorrando librerias generadas...\033[0m"
 	@make -C $(LIBFT_PATH) libclean
 	@$(RM) $(NAME) $(NAME_BONUS) $(SO_LONG) $(SO_LONG_BONUS)
 
@@ -96,11 +96,13 @@ game: all clean
 	@echo "Generando ejecutable so_long..."
 	@make -C $(LIBFT_PATH) libclean
 	@$(RM) $(SO_LONG)
+	@echo "\033[0;32mGenerado so_long\033[0m"
 
 game_bonus: bonus clean
 	@echo "Generando ejecutable so_long_bonus..."
 	@make -C $(LIBFT_PATH) fclean
 	@$(RM) $(SO_LONG) $(SO_LONG_BONUS)
+	@echo "\033[0;32mGenerado so_long_bonus\033[0m"
 	
 test: all
 	cp $(MINILIBX) libmlx.a
