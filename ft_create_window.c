@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 19:55:37 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:48:43 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ int	ft_convert_xpm(t_wvars *w)
 		return (0);
 }
 
+int	ft_quit_game(int keycode, void *param)
+{
+	exit(0);
+}
+
 int	ft_create_window(int win_w, int win_h, char *buf, char *buf2)
 {
 	t_img_data	img;
@@ -90,7 +95,7 @@ int	ft_create_window(int win_w, int win_h, char *buf, char *buf2)
 		return (free(w), 0);
 	ft_put_images(w);
 	mlx_hook(w->win, 2, 1L << 0, ft_keypress, w);
-	if (!w->winner)
-		mlx_loop(w->mlx);
+	mlx_hook(w->win, 17, 0L, ft_quit_game, 0);
+	mlx_loop(w->mlx);
 	return (free(w), 1);
 }
