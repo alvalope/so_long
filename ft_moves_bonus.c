@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:22:57 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 12:54:12 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:49:11 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,21 @@
 void	ft_joaquin_die(t_wvars *w)
 {
 	ft_printf("\n\nHas matado a Joaquin :( Quedaban %d plátanos.", w->bananas);
-	mlx_destroy_window(w->mlx, w->win);
-	exit(0);
+	ft_put_images(w);
+	w->wh = 48;
+	w->img[3] = mlx_xpm_file_to_image(w->mlx, "./img/jo48.xpm", &w->wh, &w->wh);
+	mlx_put_image_to_window(w->mlx, w->win, w->img[3], w->j_w, w->j_h);
+	ft_put_images(w);
+	mlx_clear_window(w->mlx, w->win);
+	w->wh = 32;
+	w->img[3] = mlx_xpm_file_to_image(w->mlx, "./img/jo32.xpm", &w->wh, &w->wh);
+	mlx_put_image_to_window(w->mlx, w->win, w->img[3], w->j_w, w->j_h);
+	ft_put_images(w);
+	mlx_clear_window(w->mlx, w->win);
+	w->wh = 24;
+	w->img[3] = mlx_xpm_file_to_image(w->mlx, "./img/jo24.xpm", &w->wh, &w->wh);
+	mlx_put_image_to_window(w->mlx, w->win, w->img[3], w->j_w, w->j_h);
+	ft_put_images(w);
 }
 
 void	ft_take_banana_or_exit(t_wvars *w)
@@ -41,7 +54,6 @@ void	ft_take_banana_or_exit(t_wvars *w)
 				ft_printf("\nEnorabuena has descubierto el easter egg!!! ^_^\n");
 			mlx_destroy_window(w->mlx, w->win);
 			exit(0);
-			w->winner = 1;
 		}
 	}
 }
@@ -71,8 +83,7 @@ void	ft_move_joaquin(t_wvars *w, char direction)
 		ft_joaquin_die(w);
 	if (w->j_w == w->s_z && w->j_h == w->s_v)
 		ft_joaquin_die(w);
-	if (!w->winner)
-		ft_put_images(w);
+	ft_put_images(w);
 }
 
 void	ft_move_staff_h(t_wvars *w)

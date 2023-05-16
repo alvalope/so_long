@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 15:49:29 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:49:42 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct wandh
 	int		s_h;
 	int		s_z;
 	int		s_v;
-	int		winner;
 	int		moves;
 	int		bananas;
 	int		staff;

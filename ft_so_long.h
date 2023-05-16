@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 10:06:54 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:49:38 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct wandh
 	int		wh;
 	int		j_w;
 	int		j_h;
-	int		winner;
 	int		moves;
 	int		bananas;
 	void	*img[5];
