@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:51 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 12:58:43 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:01:59 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int	main2(char *map, int file, t_check *c)
 		return (0);
 	read(file, buffer, (c->l_l) * c->lins);
 	buffer2 = ft_strdup(buffer);
+	if (c->l_l > 42 || c->lins > (42 / 2))
+	{
+		ft_printf("Error\nEl mapa es demasiado grande y no cabe en la pantalla");
+		return (free(buffer), 0);
+	}
 	create = ft_create_window(c->l_l, c->lins, buffer, buffer2);
 	if (!create)
 		return (free(buffer), 0);
@@ -32,9 +37,8 @@ int	main2(char *map, int file, t_check *c)
 		ft_printf("Error\nNo se puede llegar a la salida en el mapa %s\n", map);
 		return (free(buffer), 0);
 	}
-	free (buffer);
 	close(file);
-	return (1);
+	return (free (buffer), 1);
 }
 
 int	main(int argc, char *argv[])
