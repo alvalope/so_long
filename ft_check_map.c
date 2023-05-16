@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:12:34 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 18:35:23 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:49:08 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,16 @@ int	ft_read_map(char *m, int *file)
 	i = ft_strlen(m) - 1;
 	if (m[i] == 'r' && m[i - 1] == 'e' && m[i - 2] == 'b' && m[i - 3] == '.')
 		*file = open (m, O_RDONLY);
-	if (*file == -1)
+	else
+	{	
+		ft_printf("El mapa debe ser un archivo .ber\n");
 		return (0);
+	}
+	if (*file == -1)
+	{
+		ft_printf("No existe el mapa %s\n", m);
+		return (0);
+	}
 	else
 		return (1);
 }
