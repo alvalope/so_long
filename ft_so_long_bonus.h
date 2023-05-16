@@ -6,14 +6,14 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/15 12:02:46 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:49:59 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SO_LONG_BONUS_H
 # define FT_SO_LONG_BONUS_H
 
-# include "libft_plus/libft.h"
+# include "libftplus/libft.h"
 # include "mlx/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
@@ -42,11 +42,14 @@ typedef struct wandh
 	int		j_h;
 	int		s_w;
 	int		s_h;
+	int		s_z;
+	int		s_v;
 	int		winner;
 	int		moves;
 	int		bananas;
 	int		staff;
-	void	*img[6];
+	int		staff_v;
+	void	*img[7];
 	int		found_exit;
 }	t_wvars;
 
@@ -65,10 +68,9 @@ int		ft_check_map(int file, t_check *c);
 int		ft_check_map2(char *line, t_check *c);
 
 void	ft_take_banana_or_exit(t_wvars *w);
-void	ft_move_left(t_wvars *w);
-void	ft_move_right(t_wvars *w);
-void	ft_move_down(t_wvars *w);
-void	ft_move_up(t_wvars *w);
+void	ft_move_joaquin(t_wvars *w, char direction);
+void	ft_move_staff_h(t_wvars *w);
+void	ft_move_staff_v(t_wvars *w);
 
 int		ft_keypress(int keycode, t_wvars *w);
 void	ft_count_collectables(t_wvars *w);
@@ -80,7 +82,6 @@ int		ft_convert_xpm(t_wvars *w);
 int		ft_create_window(int win_w, int win_h, char *buffer, char *buffer2);
 
 void	ft_joaquin_die(t_wvars *w);
-void	ft_move_staff(t_wvars *w);
 
 int		main(int argc, char *argv[]);
 

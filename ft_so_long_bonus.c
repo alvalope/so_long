@@ -6,16 +6,11 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:51 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/15 11:24:13 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:58:43 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long_bonus.h"
-
-void	ft_leaks(void)
-{
-	system("leaks -q a.out");
-}
 
 int	main2(char *map, int file, t_check *c)
 {
@@ -47,9 +42,6 @@ int	main(int argc, char *argv[])
 	int		file;
 	t_check	*c;
 
-	atexit(ft_leaks);
-	argc = 2;
-	argv[1] = "maps/map_bonus.ber";
 	c = (t_check *)ft_calloc(sizeof(t_check), 1);
 	if (!c)
 		return (0);

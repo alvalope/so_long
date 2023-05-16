@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/15 11:37:30 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:52:43 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,26 @@ int	ft_put_images2(t_wvars *w)
 {
 	if (w->buf[w->i] == 'E')
 		mlx_put_image_to_window(w->mlx, w->win, w->img[4], w->w, w->h);
-	if (w->buf[w->i] == 'S')
+	if (w->buf[w->i] == 'H' || w->buf[w->i] == 'V')
 	{
 		mlx_put_image_to_window(w->mlx, w->win, w->img[0], w->w, w->h);
 		mlx_put_image_to_window(w->mlx, w->win, w->img[5], w->w, w->h);
-		if (w->s_w == 0 && w->s_h == 0)
+		if (w->buf[w->i] == 'H' && w->s_w == 0 && w->s_h == 0)
 		{
 			w->s_w = w->w;
 			w->s_h = w->h;
 		}
+		if (w->buf[w->i] == 'V' && w->s_z == 0 && w->s_v == 0)
+		{
+			w->s_z = w->w;
+			w->s_v = w->h;
+		}
 	}
 	if (w->w == w->j_w && w->h == w->j_h && w->w != 0)
 	{
-		if (w->buf[w->i] == 'S')
+		/*if (w->buf[w->i] == 'S')
 			return (0);
-		else
+		else*/
 			mlx_put_image_to_window(w->mlx, w->win, w->img[3], w->j_w, w->j_h);
 	}
 	return (1);
@@ -75,6 +80,7 @@ int	ft_convert_xpm(t_wvars *w)
 	w->img[3] = mlx_xpm_file_to_image(w->mlx, "./img/joaq.xpm", &w->wh, &w->wh);
 	w->img[4] = mlx_xpm_file_to_image(w->mlx, "./img/exit.xpm", &w->wh, &w->wh);
 	w->img[5] = mlx_xpm_file_to_image(w->mlx, "./img/staf.xpm", &w->wh, &w->wh);
+	w->img[6] = mlx_xpm_file_to_image(w->mlx, "./img/staf.xpm", &w->wh, &w->wh);
 	i = 0;
 	while (w->img[i] && i < 6)
 		i++;
@@ -82,6 +88,14 @@ int	ft_convert_xpm(t_wvars *w)
 		return (1);
 	else
 		return (0);
+}
+
+int	ft_anim(void *w)
+{
+	t_wvars	*v;
+
+	v = (t_wvars *) w;
+	return (0);
 }
 
 int	ft_create_window(int win_w, int win_h, char *buf, char *buf2)
@@ -108,6 +122,7 @@ int	ft_create_window(int win_w, int win_h, char *buf, char *buf2)
 		return (free(w), 0);
 	ft_put_images(w);
 	mlx_hook(w->win, 2, 1L << 0, ft_keypress, w);
+	mlx_loop_hook(w->mlx, ft_anim, w);
 	if (!w->winner)
 		mlx_loop(w->mlx);
 	return (free(w), 1);

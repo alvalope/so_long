@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:12:34 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/14 15:41:28 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:45:24 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	ft_check_middle_line(char *lin, t_check *c)
 	i = 1;
 	while (lin[i] && i < c->l_l - 1)
 	{
-		if (lin[i] != '1' && lin[i] != '0' && lin[i] != 'E'
-			&& lin[i] != 'P' && lin[i] != 'C' && lin[i] != 'S')
+		if (lin[i] != '1' && lin[i] != '0' && lin[i] != 'E' && lin[i] != 'P'
+			&& lin[i] != 'C' && lin[i] != 'H' && lin[i] != 'V')
 		{
 			c->check_e = 2;
 			break ;
