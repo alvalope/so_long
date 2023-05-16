@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 10:49:59 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:49:29 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		ft_read_map(char *m, int *file);
 int		ft_check_map(int file, t_check *c);
 int		ft_check_map2(char *line, t_check *c);
 
+void	ft_joaquin_die(t_wvars *w);
 void	ft_take_banana_or_exit(t_wvars *w);
 void	ft_move_joaquin(t_wvars *w, char direction);
 void	ft_move_staff_h(t_wvars *w);
@@ -80,8 +81,6 @@ int		ft_put_images2(t_wvars *wh);
 void	ft_put_images(t_wvars *wh);
 int		ft_convert_xpm(t_wvars *w);
 int		ft_create_window(int win_w, int win_h, char *buffer, char *buffer2);
-
-void	ft_joaquin_die(t_wvars *w);
 
 int		main(int argc, char *argv[]);
 
