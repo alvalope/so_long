@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 11:38:27 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:15:37 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_put_images2(t_wvars *w)
 		mlx_put_image_to_window(w->mlx, w->win, w->img[3], w->j_w, w->j_h);
 	mlx_put_image_to_window(w->mlx, w->win, w->num[10], 0, 0);
 	ft_put_moves(w);
+	ft_put_bananas_left(w);
 	return (1);
 }
 

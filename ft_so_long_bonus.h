@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 11:41:05 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:15:14 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int		ft_check_exit(t_wvars *w);
 
 int		ft_num_to_xpm(t_wvars *w);
 void	ft_put_moves(t_wvars *w);
+void	ft_put_bananas_left(t_wvars *w);
 
 int		ft_put_images2(t_wvars *w);
 void	ft_put_images(t_wvars *w);

@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:07:57 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 12:03:41 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:18:06 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,19 @@ void	ft_put_moves(t_wvars *w)
 	mlx_put_image_to_window(w->mlx, w->win, w->num[hundreds], 192, 0);
 	mlx_put_image_to_window(w->mlx, w->win, w->num[tens], 224, 0);
 	mlx_put_image_to_window(w->mlx, w->win, w->num[units], 256, 0);
+}
+
+void	ft_put_bananas_left(t_wvars *w)
+{
+	int	hundreds;
+	int	tens;
+	int	units;
+
+	hundreds = w->bananas / 100;
+	tens = (w->bananas - hundreds * 100) / 10;
+	units = (w->bananas - tens * 10) % 100;
+	mlx_put_image_to_window(w->mlx, w->win, w->img[2], 320, 0);
+	mlx_put_image_to_window(w->mlx, w->win, w->num[hundreds], 384, 0);
+	mlx_put_image_to_window(w->mlx, w->win, w->num[tens], 416, 0);
+	mlx_put_image_to_window(w->mlx, w->win, w->num[units], 448, 0);
 }
