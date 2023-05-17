@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 09:38:23 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 09:57:45 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:36:04 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_count_collectables(t_wvars *w)
 {
+	w->i = 0;
 	while (w->buf[w->i])
 	{
 		if (w->buf[w->i] == 'C')
