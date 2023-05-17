@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 09:50:07 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:38:27 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_put_images2(t_wvars *w)
 	}
 	if (w->w == w->j_w && w->h == w->j_h && w->w != 0)
 		mlx_put_image_to_window(w->mlx, w->win, w->img[3], w->j_w, w->j_h);
+	mlx_put_image_to_window(w->mlx, w->win, w->num[10], 0, 0);
+	ft_put_moves(w);
 	return (1);
 }
 
@@ -75,7 +77,6 @@ int	ft_convert_xpm(t_wvars *w)
 	w->img[3] = mlx_xpm_file_to_image(w->mlx, "./img/joaq.xpm", &w->wh, &w->wh);
 	w->img[4] = mlx_xpm_file_to_image(w->mlx, "./img/exit.xpm", &w->wh, &w->wh);
 	w->img[5] = mlx_xpm_file_to_image(w->mlx, "./img/staf.xpm", &w->wh, &w->wh);
-	w->img[6] = mlx_xpm_file_to_image(w->mlx, "./img/staf.xpm", &w->wh, &w->wh);
 	i = 0;
 	while (w->img[i] && i < 6)
 		i++;
@@ -109,7 +110,7 @@ int	ft_create_window(int win_w, int win_h, char *buf, char *buf2)
 		return (free(w), 0);
 	w->win = mlx_new_window(w->mlx, 64 * (win_w - 1), 64 * win_h, title);
 	img.img = mlx_new_image(w->mlx, w->wh, w->wh);
-	if (!ft_convert_xpm(w))
+	if (!ft_convert_xpm(w) || !ft_num_to_xpm(w))
 		return (free(w), 0);
 	ft_put_images(w);
 	mlx_hook(w->win, 2, 1L << 0, ft_keypress, w);

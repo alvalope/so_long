@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 09:50:44 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:24:17 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int		ft_keypress(int keycode, t_wvars *w);
 void	ft_count_collectables(t_wvars *w);
 int		ft_check_exit(t_wvars *w);
 
-void	ft_put_images2(t_wvars *wh);
-void	ft_put_images(t_wvars *wh);
+void	ft_put_images2(t_wvars *w);
+void	ft_put_images(t_wvars *w);
 int		ft_convert_xpm(t_wvars *w);
 int		ft_quit_game(int keycode, void *param);
 int		ft_create_window(int win_w, int win_h, char *buffer, char *buffer2);
