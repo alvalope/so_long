@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 19:48:43 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/16 20:50:32 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	ft_create_window(int win_w, int win_h, char *buf, char *buf2)
 	w->buf2 = buf2;
 	if (!ft_check_exit(w))
 		return (free(w), 2);
-	ft_count_collectables(w);
 	w->win_w = win_w;
 	w->mlx = mlx_init();
 	if (!w->mlx)

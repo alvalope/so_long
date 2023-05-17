@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:21:38 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 19:49:42 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:50:47 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct wandh
 	int		staff_v;
 	void	*img[7];
 	int		found_exit;
+	int		accesible_banana;
 }	t_wvars;
 
 typedef struct s_data {
@@ -73,12 +74,17 @@ void	ft_move_staff_h(t_wvars *w);
 void	ft_move_staff_v(t_wvars *w);
 
 int		ft_keypress(int keycode, t_wvars *w);
+
 void	ft_count_collectables(t_wvars *w);
+int		ft_check_valid_enemy_h(t_wvars *w);
+int		ft_check_valid_enemy_v(t_wvars *w);
+void	ft_check_exit2(t_wvars *w, int j);
 int		ft_check_exit(t_wvars *w);
 
 int		ft_put_images2(t_wvars *wh);
 void	ft_put_images(t_wvars *wh);
 int		ft_convert_xpm(t_wvars *w);
+int		ft_quit_game(int keycode, void *param);
 int		ft_create_window(int win_w, int win_h, char *buffer, char *buffer2);
 
 int		main(int argc, char *argv[]);

@@ -1,42 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_keypress.c                                      :+:      :+:    :+:   */
+/*   ft_checks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 13:45:53 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 09:09:23 by alvalope         ###   ########.fr       */
+/*   Created: 2023/05/17 09:38:23 by alvalope          #+#    #+#             */
+/*   Updated: 2023/05/17 09:57:45 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_so_long.h"
-
-int	ft_keypress(int keycode, t_wvars *w)
-{
-	if ((keycode == 123 || keycode == 0)
-		&& w->buf[(w->j_h / 64) * w->win_w + ((w->j_w - 64) / 64)] != '1')
-		ft_move_joaquin(w, 'l');
-	else if ((keycode == 124 || keycode == 2)
-		&& w->buf[(w->j_h / 64) * w->win_w + ((w->j_w + 64) / 64)] != '1')
-		ft_move_joaquin(w, 'r');
-	else if ((keycode == 125 || keycode == 1)
-		&& w->buf[((w->j_h + 64) / 64) * w->win_w + (w->j_w / 64)] != '1')
-		ft_move_joaquin(w, 'd');
-	else if ((keycode == 126 || keycode == 13)
-		&& w->buf[((w->j_h - 64) / 64) * w->win_w + (w->j_w / 64)] != '1')
-		ft_move_joaquin(w, 'u');
-	else if (keycode == 53)
-	{
-		mlx_destroy_window(w->mlx, w->win);
-		exit(0);
-	}
-	return (0);
-}
+#include "ft_so_long_bonus.h"
 
 void	ft_count_collectables(t_wvars *w)
 {
-	w->i = 0;
 	while (w->buf[w->i])
 	{
 		if (w->buf[w->i] == 'C')
@@ -44,6 +21,59 @@ void	ft_count_collectables(t_wvars *w)
 		w->i++;
 	}
 	w->i = 0;
+}
+
+int	ft_check_valid_enemy_h(t_wvars *w)
+{
+	int	j;
+	int	enemy;
+
+	enemy = 0;
+	j = 0;
+	while (w->buf2[j])
+	{
+		if (w->buf2[j] == 'H')
+			enemy++;
+		if (enemy > 1)
+			break ;
+		if (w->buf2[j] == 'H' && w->buf2[j + 1] == '0' && w->buf2[j + 2] == '0')
+		{
+			w->buf2[j + 1] = '1';
+			w->buf2[j + 2] = '1';
+		}
+		j++;
+	}
+	if (enemy <= 1)
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_check_valid_enemy_v(t_wvars *w)
+{
+	int	j;
+	int	enemy;
+
+	enemy = 0;
+	j = 0;
+	while (w->buf2[j])
+	{
+		if (w->buf2[j] == 'V')
+			enemy++;
+		if (enemy > 1)
+			break ;
+		if (w->buf2[j] == 'V' && w->buf2[j + w->win_w] == '0'
+			&& w->buf2[j + (2 * w->win_w)] == '0')
+		{
+			w->buf2[j + w->win_w] = '1';
+			w->buf2[j + (2 * w->win_w)] = '1';
+		}
+		j++;
+	}
+	if (enemy <= 1)
+		return (1);
+	else
+		return (0);
 }
 
 void	ft_check_exit2(t_wvars *w, int j)
@@ -79,9 +109,12 @@ int	ft_check_exit(t_wvars *w)
 	w->w = (w->i - w->win_w * (w->i / w->win_w)) * 64;
 	w->h = (w->i / w->win_w) * 64;
 	ft_count_collectables(w);
-	ft_check_exit2(w, j);
-	w->i = 0;
-	if (w->bananas != w->accesible_banana)
-		w->found_exit = 0;
+	if (ft_check_valid_enemy_h(w) && ft_check_valid_enemy_v(w))
+	{
+		ft_check_exit2(w, j);
+		w->i = 0;
+		if (w->bananas != w->accesible_banana)
+			w->found_exit = 0;
+	}
 	return (w->found_exit);
 }
