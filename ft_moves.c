@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:22:57 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/16 19:49:06 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:49:52 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_take_banana_or_exit(t_wvars *w)
 		if (w->buf[(w->j_h / 64) * w->win_w + (w->j_w / 64)] == 'E')
 		{
 			ft_printf("\n\nLograste escapar de 42 con todos los plátanos.\n");
+			ft_printf("Lo conseguiste en %d movimientos.\n", w->moves);
 			if (w->moves == 42)
 				ft_printf("\nEnorabuena has descubierto el easter egg!!! ^_^\n");
 			mlx_destroy_window(w->mlx, w->win);
