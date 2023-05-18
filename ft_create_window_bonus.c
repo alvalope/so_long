@@ -6,7 +6,7 @@
 /*   By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:22:27 by alvalope          #+#    #+#             */
-/*   Updated: 2023/05/17 12:15:37 by alvalope         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:19:35 by alvalope         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_convert_xpm(t_wvars *w)
 		return (0);
 }
 
-int	ft_quit_game(int keycode, void *param)
+int	ft_quit_game(void)
 {
 	exit(0);
 }

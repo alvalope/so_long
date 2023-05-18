@@ -6,7 +6,7 @@
 #    By: alvalope <alvalope@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:43:51 by alvalope          #+#    #+#              #
-#    Updated: 2023/05/16 13:51:27 by alvalope         ###   ########.fr        #
+#    Updated: 2023/05/18 18:23:41 by alvalope         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS = ft_so_long.c ft_check_map.c ft_create_window.c ft_moves.c ft_keypress.c
 OBJS = $(SRCS:.c=.o)
 
 BONUS_SRCS = ft_so_long_bonus.c ft_check_map_bonus.c ft_create_window_bonus.c \
-	ft_moves_bonus.c ft_keypress_bonus.c
+	ft_moves_bonus.c ft_keypress_bonus.c ft_checks_bonus.c ft_bonus.c
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
